@@ -244,7 +244,7 @@ namespace Our.Umbraco.DocTypeGridEditor.Helpers
             {
                 _logger.LogError("Failed rendering DocTypeGridEditorItem. " +
                     "Could not get viewpath. " +
-                    "{editorAlias}, {@content.ContentType}, {content.ContentType.Alias}, {viewPath}, {previewViewPath}, {isPreview}, {fullViewPath}", editorAlias, content.ContentType, content.ContentType.Alias, viewPath, previewViewPath, isPreview, fullViewPath);
+                    "{editorAlias}, {@content}, {content.ContentType.Alias}, {viewPath}, {previewViewPath}, {isPreview}, {fullViewPath}", editorAlias, content, content.ContentType.Alias, viewPath, previewViewPath, isPreview, fullViewPath);
                 return new HtmlString("");
             }
 
@@ -277,6 +277,9 @@ namespace Our.Umbraco.DocTypeGridEditor.Helpers
             {
                 viewPath = viewPath.EnsureEndsWith('/');
                 fullViewPath = $"{viewPath}{editorAlias}.cshtml";
+
+                _logger.LogDebug("Trying to load view: {fullViewPath}", fullViewPath);
+
                 if (!ViewExists(viewContext, fullViewPath))
                 {
                     fullViewPath = $"{viewPath}{contentTypeAlias}.cshtml";
