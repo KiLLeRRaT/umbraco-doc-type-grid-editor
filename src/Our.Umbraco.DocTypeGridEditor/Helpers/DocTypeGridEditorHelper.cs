@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -244,7 +244,7 @@ namespace Our.Umbraco.DocTypeGridEditor.Helpers
             {
                 _logger.LogError("Failed rendering DocTypeGridEditorItem. " +
                     "Could not get viewpath. " +
-                    "{editorAlias}, {@content}, {content.ContentType.Alias}, {viewPath}, {previewViewPath}, {isPreview}, {fullViewPath}", editorAlias, content, content.ContentType.Alias, viewPath, previewViewPath, isPreview, fullViewPath);
+                    "{editorAlias}, {@content}, {contentContentTypeAlias}, {viewPath}, {previewViewPath}, {isPreview}, {fullViewPath}", editorAlias, content, content.ContentType.Alias, viewPath, previewViewPath, isPreview, fullViewPath);
                 return new HtmlString("");
             }
 
